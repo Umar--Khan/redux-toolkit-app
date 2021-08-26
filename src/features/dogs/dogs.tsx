@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useFetchBreedsQuery } from "./dogsApiSlice";
-import LoadingIndicator from "../../common/components/loadingIndicator";
+import LoadingIndicator from "../../common/components/loadingIndicator/loadingIndicator";
 
 const Dogs = () => {
   const [numDogs, setNumDogs] = useState(10);
   const { data = [], isFetching } = useFetchBreedsQuery(numDogs);
 
   if (isFetching) return <LoadingIndicator />;
+
+  console.log("data", data);
 
   return (
     <>
@@ -34,7 +36,7 @@ const Dogs = () => {
           </thead>
           <tbody>
             {data.map((breed) => (
-              <tr key={breed.id}>
+              <tr key={breed.id} data-testid="dog-breed">
                 <td>{breed.name}</td>
                 <td>
                   <img src={breed.image.url} alt={breed.name} height="250" />

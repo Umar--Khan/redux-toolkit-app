@@ -1,5 +1,3 @@
-import React from "react";
-
 import Counter from "../features/counter/counter";
 import Dogs from "../features/dogs/dogs";
 

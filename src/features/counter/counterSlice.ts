@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
-interface CounterState {
+export interface CounterState {
   value: number;
 }
 
-const initialState: CounterState = {
+export const initialState: CounterState = {
   value: 0,
 };
 
@@ -15,7 +15,7 @@ const counterSlice = createSlice({
   initialState,
   reducers: {
     // Will auto generate the action name
-    incremented(state) {
+    increment(state) {
       // Redux toolkit uses immer under the hood
       state.value++;
     },
@@ -23,7 +23,7 @@ const counterSlice = createSlice({
       state.value += action.payload;
     },
     reset(state) {
-      state.value = 0;
+      state.value = initialState.value;
     },
   },
 });
@@ -41,5 +41,5 @@ const counterSlice = createSlice({
 //   return { count, dispatch };
 // };
 
-export const { incremented, amountAdded, reset } = counterSlice.actions;
+export const { increment, amountAdded, reset } = counterSlice.actions;
 export default counterSlice.reducer;

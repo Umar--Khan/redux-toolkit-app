@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const DOGS_API_KEY = "ec319669-9e0b-48b9-9688-811c461b9e0c";
 
-interface Breed {
+export interface Breed {
   id: string;
   name: string;
   image: {

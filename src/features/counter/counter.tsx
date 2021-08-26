@@ -1,7 +1,5 @@
-import React from "react";
-
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { incremented, amountAdded, reset } from "./counterSlice";
+import { increment, amountAdded, reset } from "./counterSlice";
 
 const Counter = () => {
   const dispatch = useAppDispatch();
@@ -9,8 +7,8 @@ const Counter = () => {
 
   return (
     <>
-      <p>Count is: {count}</p>
-      <button onClick={() => dispatch(incremented())}>+ 1</button>
+      <p data-testid="count">Count is: {count}</p>
+      <button onClick={() => dispatch(increment())}>+ 1</button>
       <button onClick={() => dispatch(amountAdded(3))}>+ 3</button>
       <button onClick={() => dispatch(reset())}>Reset</button>
     </>
